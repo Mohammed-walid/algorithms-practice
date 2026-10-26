@@ -21,7 +21,7 @@ def find_max_crossing_subarray(arr, low, mid, high): #this function takes O(n)
     return max_left_index, max_right_index, left_sum + right_sum
 
 
-def find_maximum_subarray(arr, low, high):
+def find_maximum_subarray(arr, low, high): # Algorithm is O(n log n)
     if high == low: #if array contains 1 element only
         return low, high, arr[low]
 
