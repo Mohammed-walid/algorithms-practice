@@ -12,18 +12,18 @@ def find_max_crossing_subarray(arr, low, mid, high): #this function takes O(n)
             max_left_index = i #the exact starting index of the highest sum
 
     summion = 0
-    for j in range(mid+1, high):
+    for j in range(mid+1, high+1):
         summion = summion + arr[j]
         if summion > right_sum:
             right_sum = summion
             max_right_index = j
 
-    return (max_left_index, max_right_index, left_sum + right_sum)
+    return max_left_index, max_right_index, left_sum + right_sum
 
 
 def find_maximum_subarray(arr, low, high):
     if high == low: #if array contains 1 element only
-        return (low, high, arr[low])
+        return low, high, arr[low]
 
     else:
         mid = (low+high)//2
@@ -34,11 +34,11 @@ def find_maximum_subarray(arr, low, high):
         cross_low, cross_high, cross_sum = find_max_crossing_subarray(arr, low, mid, high)
 
         if left_sum >= right_sum and left_sum >= cross_sum:
-            return (left_low, left_high, left_sum)
+            return left_low, left_high, left_sum
         elif right_sum >= left_sum and right_sum >= cross_sum:
-            return (right_low, right_high, right_sum)
+            return right_low, right_high, right_sum
         else:
-            return (cross_low, cross_high, cross_sum)
+            return cross_low, cross_high, cross_sum
 
 
 
@@ -50,4 +50,14 @@ def find_maximum_subarray(arr, low, high):
 
 
 if __name__ == "__main__":
-    pass
+    array = [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7]
+
+    start_index = 0
+    end_index = len(array) - 1
+
+    best_low, best_high, max_sum = find_maximum_subarray(array, start_index, end_index)
+
+    print(f"Array: {array}")
+    print(f"Maximum Contiguous Sum: {max_sum}")
+    print(f"Found between index {best_low} and {best_high}")
+    print(f"Subarray elements: {array[best_low:best_high + 1]}")
