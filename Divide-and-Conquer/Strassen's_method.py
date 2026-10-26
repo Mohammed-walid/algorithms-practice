@@ -1,0 +1,1 @@
+"""Module used for implementing strassen's method"""
