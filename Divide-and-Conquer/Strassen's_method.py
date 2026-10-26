@@ -1,14 +1,14 @@
 """Module used for implementing strassen's method"""
 
 
-# Helper Function: Adds two matrices together
+# helper function: adds two matrices together
 def add(A, B):
     n = len(A)
-    # This creates a new grid, adding each matching cell (e.g., top-left + top-left)
+    # This creates a new grid, adding each matching cell
     return [[A[i][j] + B[i][j] for j in range(n)] for i in range(n)]
 
 
-# Helper Function: Subtracts two matrices
+# helper function: subtracts two matrices
 def sub(A, B):
     n = len(A)
     return [[A[i][j] - B[i][j] for j in range(n)] for i in range(n)]
