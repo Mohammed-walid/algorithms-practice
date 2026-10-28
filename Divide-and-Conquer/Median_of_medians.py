@@ -7,7 +7,12 @@ def find_median(array):
     return array[len(array) // 2]
 
 def median_of_medians(array, target_rank):
+    #takes the entire giant array and breaks it down into tiny chunks of exactly 5 numbers
+    #you can change the number, but complexity may change.
     sublists = [array[j:j + 5] for j in range(0, len(array), 5)]
+    #loops through every single 5 element array i created.
+    #For each array, it runs the find_median helper function to sort it and grab its middle number.
+    #It then collects all of those middle numbers and stores them in a brand new list called medians
     medians = [find_median(sublist) for sublist in sublists]
 
     if len(medians) <= 5:
