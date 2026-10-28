@@ -1,7 +1,7 @@
 """this module is for Randomized Quicksort"""
 import random
 
-def randomized_quicksort(array, first_index, last_index):
+def randomized_quicksort(array, first_index, last_index): #average case O(n log n) and worst case o(n^(2))
     if(last_index>first_index):
         pivot = random_partition(array, first_index, last_index)
         randomized_quicksort(array, first_index, pivot - 1)
