@@ -2,10 +2,10 @@
 import random
 
 def randomized_quicksort(array, first_index, last_index): #average case O(n log n) and worst case o(n^(2))
-    if(last_index>first_index):
+    if last_index>first_index:
         pivot = random_partition(array, first_index, last_index)
         randomized_quicksort(array, first_index, pivot - 1)
-        randomized_quicksort(array, first_index + 1, pivot)
+        randomized_quicksort(array, pivot + 1, last_index)
 
 
 
@@ -23,3 +23,4 @@ def partition(array, first_index, last_index):
             array[small_element_tracker], array[j] = array[j], array[small_element_tracker]
 
     array[small_element_tracker + 1], array[last_index] = array[last_index], array[small_element_tracker + 1]
+    return small_element_tracker + 1
