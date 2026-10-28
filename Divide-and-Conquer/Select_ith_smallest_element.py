@@ -2,3 +2,4 @@
 since naive algorithms gives us running time of O(n lg n) we will use Divide and conquer to
 reach O(n)"""
 
+import random

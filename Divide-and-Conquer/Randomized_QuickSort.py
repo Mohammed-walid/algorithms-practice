@@ -23,4 +23,3 @@ def partition(array, first_index, last_index):
             array[small_element_tracker], array[j] = array[j], array[small_element_tracker]
 
     array[small_element_tracker + 1], array[last_index] = array[last_index], array[small_element_tracker + 1]
-
