@@ -1,6 +1,7 @@
 """This module is used to select the ith smallest element in an array,
 since naive algorithms gives us running time of O(n lg n) we will use Divide and conquer to
-reach O(n)"""
+reach O(n), but worst case is O(n^(2)) so we want to eliminte it we will be implementing
+Median of medians method"""
 
 import random
 
