@@ -15,4 +15,12 @@ def random_partition(array, first_index, last_index):
     return partition(array, first_index, last_index)
 
 def partition(array, first_index, last_index):
-    pass
+    pivot_value = array[last_index]
+    small_element_tracker = first_index - 1
+    for j in range(first_index, last_index):
+        if array[j] <= pivot_value:
+            small_element_tracker += 1
+            array[small_element_tracker], array[j] = array[j], array[small_element_tracker]
+
+    array[small_element_tracker + 1], array[last_index] = array[last_index], array[small_element_tracker + 1]
+
